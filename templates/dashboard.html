@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero Instructor - First Shift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard-style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <img src="{{ url_for('static', filename='img/profile.png') }}" alt="Perfil" class="profile-icon">
+        </div>
+
+        <nav class="navbar-center">
+            <ul class="nav-links">
+                <li><a href="#">Foro</a></li>
+                <li><a href="#">Prácticas</a></li>
+                <li><a href="#">Clases</a></li>
+            </ul>
+        </nav>
+
+        <div class="navbar-right">
+            <a href="{{ url_for('login') }}"><img src="{{ url_for('static', filename='img/logout.png') }}" alt="Cerrar sesión" class="logout-icon"></a>
+        </div>
+    </header>
+
+    <!-- INFORMACIÓN DE LA CLASE -->
+    <section class="class-info">
+        <div class="class-info-card">
+            <div class="class-details">
+                <h2 class="class-title">Clase: {{ nombre_clase if clase_unida else '------' }}</h2>
+                <p class="class-teacher">Mtro. Saltillo Colorado Jesús Alexis</p>
+                <p class="class-code">Código de la clase: {{ codigo_clase if clase_unida else 'XXXXXX' }}</p>
+            </div>
+            <div class="teacher-photo">
+                <img src="{{ url_for('static', filename='img/profile.png') }}" alt="Foto de perfil">
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+        <!-- Sección de notificaciones -->
+        <section class="notifications">
+            <h3 class="section-title">Notificaciones</h3>
+            <ul class="notification-list">
+                <li class="notification-item">
+                    <img src="{{ url_for('static', filename='img/enfermerito.png') }}" alt="Icono usuario">
+                    <div class="notif-text">
+                        <strong>Roberto Pastrada</strong>
+                        <p>Hizo un comentario</p>
+                    </div>
+                    <span class="notif-status green"></span>
+                </li>
+                <li class="notification-item">
+                    <img src="{{ url_for('static', filename='img/enfermerita.png') }}" alt="Icono usuario">
+                    <div class="notif-text">
+                        <strong>Esther Fernandez</strong>
+                        <p>Realizó la práctica 1</p>
+                    </div>
+                    <span class="notif-status gray"></span>
+                </li>
+                <li class="notification-item">
+                    <img src="{{ url_for('static', filename='img/cantante.png') }}" alt="Icono usuario">
+                    <div class="notif-text">
+                        <strong>Emiliano Saenz</strong>
+                        <p>Ha entrado a la clase</p>
+                    </div>
+                    <span class="notif-status green"></span>
+                </li>
+            </ul>
+            <button class="see-more">Ver más</button>
+        </section>
+
+        <!-- SECCIÓN DE PRÁCTICAS -->
+
+        {% if not clase_unida %}
+        <section class="join-class-form">
+            <h3 class="form-title">Unirse a una clase</h3>
+            <form method="POST" action="{{ url_for('unirse_clase') }}" class="form-wrapper">
+                <label for="codigo_clase" class="form-label">Código de la clase</label>
+                <input type="text" id="codigo_clase" name="codigo_clase" class="form-input"
+                    placeholder="Ingresa el código de la clase" required>
+
+                <button type="submit" class="create-btn">Unirse</button>
+            </form>
+        </section>
+        {% else %}
+        <!-- Mostrar prácticas si ya está unido -->
+        <section class="practices-list">
+            {% if actividades %}
+            {% for actividad in actividades %}
+            <div class="practice-card">
+                <div class="practice-icon">
+                    <img src="{{ url_for('static', filename='img/actividad.png') }}" alt="Icono práctica">
+                </div>
+                <div class="practice-info">
+                    <h4 class="practice-title">{{ actividad[1] }}</h4>
+                    <p class="practice-description">{{ actividad[2][:100] }}...</p>
+                </div>
+                <div class="practice-meta">
+                    <p class="students-count">
+                        <span class="label">Actividad</span><br>ID {{ actividad[0] }}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p style="margin-top: 1rem; color: white; font-size: 2rem; text-align: center;">No hay prácticas asignadas
+                aún</p>
+            {% endif %}
+        </section>
+        {% endif %}
+
+    </main>
+
+</body>
+
+</html>

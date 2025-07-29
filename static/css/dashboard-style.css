@@ -1,0 +1,369 @@
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fredoka', sans-serif;
+    background-color: #283784;
+    color: #000;
+}
+
+/* NAVBAR SUPERIOR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    height: 70px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-left img,
+.navbar-right img {
+    width: 60px;
+    height: 60px;
+}
+
+.navbar-center .nav-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-center .nav-links li a {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    padding: 0.4rem 1rem;
+    background-color: #a7caf1;
+    border-radius: 20px;
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-center .nav-links li a:hover {
+    background-color: #9fc6f3;
+    transform: translateY(-2px);
+}
+
+/* TARJETA DE INFORMACIÓN DE CLASE */
+.class-info {
+    padding: 1rem 2rem;
+}
+
+.class-info-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.class-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.class-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.class-teacher,
+.class-code {
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.teacher-photo {
+    text-align: center;
+}
+
+.teacher-photo img {
+    width: 90px;
+    height: 90px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* CONTENEDOR GENERAL */
+.main-content {
+    display: flex;
+    gap: 2rem;
+    padding: 0 2rem 2rem;
+    align-items: flex-start;
+}
+
+/* NOTIFICACIONES */
+.notifications {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 1rem;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+}
+
+.notification-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.notification-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+}
+
+.notification-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.notif-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.notif-text strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.notif-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+}
+
+.notif-status.green {
+    background-color: #41C04E;
+}
+
+.notif-status.gray {
+    background-color: #C0C0C0;
+}
+
+.see-more {
+    font-family: 'Fredoka';
+    align-self: center;
+    background-color: #a7caf1;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.see-more:hover {
+    background-color: #9fc6f3;
+    transform: translateY(-2px);
+}
+
+/* FORMULARIO CREAR CLASE */
+.join-class-form {
+    background-color: #a7caf1;
+    border-radius: 20px;
+    padding: 2rem 1rem;
+    flex: 1;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #283784;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 300px;
+}
+
+.form-label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    color: #283784;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+    border: none;
+    font-family: 'Fredoka';
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+.form-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.generate-btn {
+    background-color: #283784;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.5rem 1.2rem;
+    font-family: 'Fredoka';
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.generate-btn:hover {
+    background-color: #1f2e6d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.generated-code {
+    background-color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    font-family: 'Fredoka';
+    font-size: 1rem;
+    font-weight: 400;
+    width: 110px;
+}
+
+.create-btn {
+    background-color: #283784;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.6rem 1.5rem;
+    font-family: 'Fredoka';
+    font-weight: 500;
+    font-size: 1rem;
+    align-self: flex-end;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.create-btn:hover {
+    background-color: #1f2e6d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* PRÁCTICAS */
+.practices-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.practice-card {
+    background-color: #a7caf1;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.practice-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.practice-icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.practice-info {
+    flex: 1;
+    margin-left: 1rem;
+}
+
+.practice-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.practice-description {
+    margin: 0.2rem 0 0 0;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #333;
+}
+
+.practice-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 90px;
+    text-align: center;
+    height: 100%;
+}
+
+.practice-meta .label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 0.1rem;
+}
+
+.students-count {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+}

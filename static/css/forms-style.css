@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    font-family: 'Fredoka', sans-serif; /* Aplicar Fredoka Regular al cuerpo */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #a7caf1;
+}
+
+.registration-container {
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), /* Sombra principal más grande y oscura */
+                0 6px 10px rgba(0, 0, 0, 0.1);  /* Sombra más pequeña y un poco menos difusa para darle profundidad */
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+    animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.image-display-section {
+    flex: 1;
+    background-color: #1a2c71; /* Color azul similar al del logo */
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;   /* Centrar verticalmente */
+    padding: 20px;
+    position: relative;
+}
+
+/* Estilos para el nuevo logo */
+.app-logo {
+    max-width: 100%; /* Ajusta el tamaño del logo según sea necesario */
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+}
+
+
+.registration-form-section {
+    flex: 1.2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+/* 
+.back-arrow {
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    margin-right: 20px;
+} */
+
+h2 {
+    font-family: 'Fredoka', sans-serif; /* Asegurarse de que h2 también use Fredoka */
+    font-size: 26px;
+    color: #333;
+    font-weight: 600; /* SemiBold para los títulos */
+    margin: 0;
+}
+
+/* New styles for two-column layout */
+.form-columns {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: space-between; /* Distributes space between items */
+}
+
+.form-columns .form-group {
+    flex-basis: calc(50% - 15px); /* Two columns with some space between them */
+    margin-bottom: 25px; /* Maintain vertical spacing */
+}
+
+@media (max-width: 600px) { /* Adjust for smaller screens */
+    .form-columns .form-group,
+    .form-group select {
+        flex-basis: 100%; /* Stack columns on small screens */
+    }
+}
+
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 8px;
+    font-weight: 400; /* Regular para los labels, si aplica */
+    font-family: 'Fredoka', sans-serif; /* Asegurarse de que usen Fredoka */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    background-color: transparent; /* Asegura que el fondo del select se transparente*/
+    -webkit-appearance: none; /* Elimina estilos por defecto de webkit */
+    -moz-appearance: none; /* Elimina estilos por defecto de Mozilla */
+    appearance: none; /*Elimina estilos por defecto */
+    cursor: pointer;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.form-group input:focus
+.form-group select:focus {
+    border-bottom-color: #436fd5;
+}
+
+/* Estilos para el indicador de flecha del select */
+.form-group {
+    position: relative; /* Necesario para posicionar la flecha */
+}
+
+.form-group select {
+    padding-right: 30px; /* Deja espacio para la flecha personalizada */
+}
+
+.form-group select::after {
+    content: 'x'; /* Carácter Unicode para una flecha hacia abajo */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Asegura que la flecha no interfiera con el click*/
+    color: #888;
+}
+
+.password-requirements {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #555;
+}
+
+.password-requirements-columns {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    margin-top: 5px;
+}
+
+.password-requirements-columns ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Eliminar margen predeterminado de la lista */
+    display: flex; /* Usar flexbox dentro de la lista para organizar los li*/
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.password-requirements-columns li {
+    flex-basis: calc(50% - 10px); /* Dos columnas con un pequeño espacio */
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+    margin-bottom: 5px; /* Espacio entre los elementos de la lista*/
+    box-sizing: border-box; /* Incluir padding y borde en el cálculo del ancho */
+}
+
+@media (max-width: 480px) {
+    .password-requirements-columns li {
+        flex-basis: 100%; /* Ampliar en pantallas muy pequeñas */
+    }
+}
+
+.password-requirements li.valid:before {
+    content: '✔';
+    color: green;
+    position: absolute;
+    left: 0;
+}
+
+.password-requirements li.invalid:before {
+    content: '✖';
+    color: red;
+    position: absolute;
+    left: 0;
+}
+
+.password-status {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.submit-button {
+    background-color: #436fd5;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.submit-button:hover {
+    background-color: rgb(108, 174, 231);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .registration-container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .image-display-section {
+        min-height: 200px;
+        padding-bottom: 20px; /* Reducido el padding ya que el logo no se sale */
+    }
+
+    .app-logo { /* Ajuste para el logo en móvil */
+        max-width: 50%; /* Puedes ajustar el tamaño del logo en pantallas pequeñas */
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 20px;
+    }
+
+    .registration-form-section {
+        padding: 30px 20px;
+    }
+}

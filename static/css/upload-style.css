@@ -1,0 +1,181 @@
+/* Estilos generales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Fredoka', sans-serif;
+  background-color: #283784;
+  color: #000;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    height: 70px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-left img,
+.navbar-right img {
+    width: 60px;
+    height: 60px;
+}
+
+.navbar-center .nav-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-center .nav-links li a {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    padding: 0.4rem 1rem;
+    background-color: #a7caf1;
+    border-radius: 20px;
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-center .nav-links li a:hover {
+    background-color: #9fc6f3;
+    transform: translateY(-2px);
+}
+
+/* Contenedor principal */
+.main-container {
+  display: flex;
+  gap: 3rem;
+  padding: 3rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Sección del formulario */
+.form-section {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 500px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  color: #283784;
+}
+
+.form-section h2,
+.form-section h3 {
+  margin-top: 0;
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-section label,
+.extra-section label {
+  display: block;
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.form-section input,
+.form-section textarea,
+.form-section select,
+.extra-section input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 1rem;
+  background-color: #f0f0f0;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+}
+
+.form-section textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Sección adicional */
+.extra-section {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  color: #283784;
+}
+
+.extra-section input {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.submit-btn {
+  background-color: #cfe5ff;
+  border: none;
+  border-radius: 20px;
+  padding: 0.6rem;
+  font-family: 'Fredoka';
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #a7d1ff;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección de estado */
+.status-section {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 400px;
+  height: fit-content;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  color: #283784;
+}
+
+.status-section h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+#status-message {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Contenedor derecho (extra + status) */
+.right-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}

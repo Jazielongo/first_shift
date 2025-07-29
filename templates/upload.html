@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir práctica clínica - First Shift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload-style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR (igual que panel anterior) -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <img src="{{ url_for('static', filename='img/profile.png') }}" alt="Perfil" class="profile-icon">
+        </div>
+
+        <nav class="navbar-center">
+            <ul class="nav-links">
+                <li><a href="#">Foro</a></li>
+                <li><a href="{{ url_for('instructor') }}">Prácticas</a></li>
+                <li><a href="#">Alumnos</a></li>
+                <li><a href="#">Clases</a></li>
+                <li><a href="#">Crear práctica</a></li>
+            </ul>
+        </nav>
+
+        <div class="navbar-right">
+            <img src="{{ url_for('static', filename='img/logout.png') }}" alt="Cerrar sesión" class="logout-icon">
+        </div>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="main-container">
+        <!-- Frame 1: Formulario izquierdo -->
+        <section class="form-section">
+            <h2>Subir práctica clínica</h2>
+
+            <form id="upload-form" method="POST" action="{{ url_for('crear_practica') }}">
+                <label for="titulo">Título de la práctica</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título..." required>
+
+                <label for="descripcion">Descripción de la práctica</label>
+                <textarea id="descripcion" name="descripcion"
+                    placeholder="Ingresa la descripción de la práctica..." required></textarea>
+
+                <label for="clase">Clase a la que pertenece</label>
+                <select id="clase" name="id_clase" required>
+                    <option disabled selected>Selecciona una clase</option>
+                    {% for clase in clases %}
+                    <option value="{{ clase[0] }}">{{ clase[1] }}</option>
+                    {% endfor %}
+                </select>
+
+            </form>
+        </section>
+
+        <div class="right-container">
+            <!-- Frame 2: Datos adicionales y botón -->
+            <section class="extra-section">
+                <label for="fecha_entrega">Fecha de entrega</label>
+                <input type="date" id="fecha_entrega" name="fecha_entrega" form="upload-form">
+
+                <button type="submit" form="upload-form" class="submit-btn">Subir práctica</button>
+            </section>
+
+            <!-- Frame 3: Estatus -->
+            <section class="status-section">
+                <h3>Estatus de carga</h3>
+                <p id="status-message">En espera...</p>
+            </section>
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bienvenido</title>
+
+  <!-- Fuente Fredoka -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilos de bienvenida -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/welcome-style.css') }}" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/png" />
+</head>
+
+<body>
+  <div id="splash-view" class="view">
+    <div class="circle"></div>
+  
+    <div class="container">
+      <div class="image-container">
+        <img src="{{ url_for('static', filename='img/capa1.png') }}" alt="capa1" class="capa1" />
+        <img src="{{ url_for('static', filename='img/capa2.png') }}" alt="capa2" class="capa2" />
+      </div>
+    </div>
+  
+    <div class="texto-central">First Shift</div>
+  </div>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- Script personalizado -->
+  <script src="{{ url_for('static', filename='js/welcome-script.js') }}"></script>
+</body>
+</html>
